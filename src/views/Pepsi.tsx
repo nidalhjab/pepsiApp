@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ControlSari } from "../common/components/ControlSari";
+import { SARI_API } from "../common/components/Constants";
 
 export default function Pepsi() {
   const [transactionsData, setTransactionsData] = useState<any>([]);
@@ -11,7 +12,7 @@ export default function Pepsi() {
       setTimeout(()=>{
         sariFrameRef.current?.contentWindow?.postMessage(
           { type: "TOKEN", token:246 },
-          "http://localhost:3000"
+          SARI_API
         );
       },1000)
     }
@@ -37,7 +38,7 @@ export default function Pepsi() {
         ref={sariFrameRef}
         className="iframe"
         title="Sari Map"
-        src="http://localhost:3000/"
+        src={SARI_API}
       />
     </div>
   );

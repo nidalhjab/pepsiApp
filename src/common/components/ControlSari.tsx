@@ -4,6 +4,7 @@ import { RadioButton } from "./RadioButton";
 import ExcelDownloadButton from "./ ExcelDownloadButton";
 import { SubmitButton } from "./SubmitButton";
 import { TextField } from "./TextField";
+import { SARI_API } from "./Constants";
 
 export const ControlSari = ({ data, framRef }: any) => {
   const [piosName, setPiosName] = useState("");
@@ -18,7 +19,7 @@ export const ControlSari = ({ data, framRef }: any) => {
     e.preventDefault();
     framRef.current.contentWindow.postMessage(
       { type: "NEW_PIOS", name: piosName, lat: piosLat, lng: piosLng },
-      "http://localhost:3000"
+      SARI_API
     );
   };
 
@@ -26,7 +27,7 @@ export const ControlSari = ({ data, framRef }: any) => {
     e.preventDefault();
     framRef.current.contentWindow.postMessage(
       { type: "CENTER", centerX, centerY },
-      "http://localhost:3000"
+      SARI_API
     );
   };
 
@@ -34,7 +35,7 @@ export const ControlSari = ({ data, framRef }: any) => {
     e.preventDefault();
     framRef.current.contentWindow.postMessage(
       { type: "Updated_ZOOM", updatedZoom },
-      "http://localhost:3000"
+      SARI_API
     );
   };
 

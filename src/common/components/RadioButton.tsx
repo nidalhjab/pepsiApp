@@ -1,11 +1,12 @@
 import { ChangeEvent, useState } from 'react'
+import { SARI_API } from './Constants'
 
 export const RadioButton = ({ framRef }: any) => {
   const [topping, setTopping] = useState("Medium")
 
   const onOptionChange = (e: ChangeEvent<HTMLInputElement>) => {
     setTopping(e.target.value)
-    framRef.current.contentWindow.postMessage({ type: 'MAP_TYPE', mapType: e.target.value }, 'http://localhost:3000');
+    framRef.current.contentWindow.postMessage({ type: 'MAP_TYPE', mapType: e.target.value }, SARI_API);
   }
 
   return (
