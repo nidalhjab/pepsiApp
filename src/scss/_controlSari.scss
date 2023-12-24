@@ -1,0 +1,42 @@
+@import "./mixins";
+
+.control-container{
+    width: 60%;
+    padding: 20px;
+   
+    form{
+        margin-top: 10px;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+    }
+
+    >div{
+        margin: 20px;
+    }
+    .toggle{
+        @include flex-presentation;
+    }
+    .data-board{
+        @include flex-presentation;
+        .fetched{
+            width: 45%;
+            height: 400px;
+            overflow-y: auto;
+            .fetched-data{
+                border: 1px solid black;
+                padding: 5px;
+            }
+        }
+        .details{
+            width: 50%;
+            height: 400px;
+            overflow-y: auto;
+            .details-data{
+                border: 1px solid black;
+                padding: 5px;
+            }
+        }
+    }
+    
+}
